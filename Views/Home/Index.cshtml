@@ -1,0 +1,44 @@
+﻿@using WebApplication1.Models;
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@{
+    List<Ppm99> ppm99s = ViewBag.ppm99s;
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>編號</th>
+            <th>名稱</th>
+            <th>日期</th>
+            <th>性別</th>
+            <th>服兵役</th>
+            <th>交通方式</th>
+            <th>地址縣市</th>
+            <th>地址鄉鎮</th>
+            <th>地址門牌</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ foreach (Ppm99 ppm99 in ppm99s)
+            {
+                <tr>
+                    <th>@ppm99.ppm99_stfn</th>
+                    <th>@ppm99.ppm99_name</th>
+                    <th>@ppm99.ppm99_jdate</th>
+                    <th>@ppm99.ppm99_gender</th>
+                    <th>@ppm99.ppm99_military</th>
+                    <th>@ppm99.ppm99_transportList</th>
+                    <th>@ppm99.ppm99_city</th>
+                    <th>@ppm99.ppm99_zone</th>
+                    <th>@ppm99.ppm99_addr</th>
+                    <th>@Html.ActionLink("編輯", "EditPPM", new { stfn = ppm99.ppm99_stfn })</th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

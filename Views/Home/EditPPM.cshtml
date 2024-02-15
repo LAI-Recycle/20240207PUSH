@@ -1,0 +1,51 @@
+﻿@using WebApplication1.Models
+@model WebApplication1.Models.Ppm99
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>新增</h2>
+<br />
+
+<form action="/Home/EditPPM" method="post">
+    <div>
+        <label>ppm99_stfn編號</label>
+        <input type="text" name="ppm99_stfn" value="@Model.ppm99_stfn" readonly/>
+    </div>
+    <div>
+        <label>ppm99_name名字</label>
+        <input type="text" name="ppm99_name" value="@Model.ppm99_name"  />
+    </div>
+    <div>
+        <label>ppm99_jdate日期</label>
+        <input type="text" name="ppm99_jdate" value="@Model.ppm99_jdate"  />
+    </div>
+    <div>
+        <label>ppm99_gender性別</label>
+        <input type="text" name="ppm99_gender" value="@Model.ppm99_gender"  />
+    </div>
+    <div>
+        <label>pm99_military服兵役</label>
+        <input type="text" name="ppm99_military" value="@Model.ppm99_military"  />
+    </div>
+    <div>
+        <label>ppm99_transportList交通方式</label>
+        <input type="text" name="ppm99_transportList" value="@Model.ppm99_transportList"  />
+    </div>
+    <div>
+        <label>ppm99_city地址縣市</label>
+        <input type="text" name="ppm99_city" value="@Model.ppm99_city"  />
+    </div>
+    <div>
+        <label>ppm99_zone地址鄉鎮</label>
+        <input type="text" name="ppm99_zone" value="@Model.ppm99_zone"  />
+    </div>
+    <div>
+        <label>ppm99_addr地址門牌</label>
+        <input type="text" name="ppm99_addr" value="@Model.ppm99_addr"  />
+    </div>
+
+
+    <input type="submit" value="儲存" />
+</form>
