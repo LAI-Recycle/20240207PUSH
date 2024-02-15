@@ -7,23 +7,23 @@ using System.Runtime.Remoting.Messaging;
 namespace WebApplication1.Models
 {
 
-    public class Ppm99
-    {
-        public string ppm99_stfn { get; set; }
-        public string ppm99_name { get; set; }
-        public string ppm99_jdate { get; set; }
-        public string ppm99_gender { get; set; }
-        public string ppm99_military { get; set; }
-        public string ppm99_transportList { get; set; }
-        public string ppm99_city { get; set; }
-        public string ppm99_zone { get; set; }
-        public string ppm99_addr { get; set; }
-    }
-    public class DBmanager
-    {
+        public class Ppm99
+        {
+            public string ppm99_stfn { get; set; }
+            public string ppm99_name { get; set; }
+            public string ppm99_jdate { get; set; }
+            public string ppm99_gender { get; set; }
+            public string ppm99_military { get; set; }
+            public string ppm99_transportList { get; set; }
+            public string ppm99_city { get; set; }
+            public string ppm99_zone { get; set; }
+            public string ppm99_addr { get; set; }
+        }
+        public class StaffListModel
+        {
         private readonly string ConnStr = "Data Source = localhost\\SQLEXPRESS;Initial Catalog = Test; Integrated Security = True";
 
-        public List<Ppm99> GetPpmList()
+        public List<Ppm99> GetStaffList()
         {
             List<Ppm99> ppm99s = new List<Ppm99>();
             SqlConnection sqlConnection = new SqlConnection(ConnStr);
@@ -185,7 +185,5 @@ namespace WebApplication1.Models
             sqlConnection.Close();
 
         }
-
     }
-
 }

@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
-//using static WebApplication1.Models.ListModel;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class HRListController : Controller
     {
-        public ActionResult Index()
+        public ActionResult StaffList()
         {
-            DBmanager dbmanager = new DBmanager();
-            List<Ppm99> ppm99s = dbmanager.GetPpmList();
+            StaffListModel dbmanager = new StaffListModel();
+            List<Ppm99> ppm99s = dbmanager.GetStaffList();
             ViewBag.ppm99s = ppm99s;
             return View();
         }
 
+        //新增/修改/刪除/作廢/編輯
+
+        /// <summary>
+        /// 新增員工明細
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CreatPPM()
         {
                 return View();
@@ -26,10 +29,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult CreatPPM(Ppm99 PPM99)
         {
-            DBmanager dbmanager = new DBmanager();
+            StaffListModel dbmanager = new StaffListModel();
             try {
                 dbmanager.NewCard(PPM99);
-                return RedirectToAction("Index");
+                return RedirectToAction("StaffList");
             }
             catch (Exception ex) 
             {
@@ -40,7 +43,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult EditPPM(int stfn)
         {
-            DBmanager dbmanager = new DBmanager();
+            StaffListModel dbmanager = new StaffListModel();
             Ppm99 ppm99 = dbmanager.GetPpm99Detail(stfn);
             return View(ppm99);
         }
@@ -48,9 +51,9 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult EditPPM(Ppm99 PPM99)
         {
-            DBmanager dbmanager = new DBmanager();
+            StaffListModel dbmanager = new StaffListModel();
             dbmanager.UpdatePpm99Detail(PPM99);
-            return RedirectToAction("Index");
+            return RedirectToAction("StaffList");
         }
     }
 }
