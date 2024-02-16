@@ -1,13 +1,15 @@
 ﻿@using WebApplication1.Models;
+@model List<StaffList>
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Staff List Page";
 }
 
-@{
-    List<Ppm99> ppm99s = ViewBag.ppm99s;
-}
-
+<div class="page-title">
+    <h3>
+        員工資料清單
+    </h3>
+</div>
 
 <table class="table">
     <thead>
@@ -24,21 +26,20 @@
         </tr>
     </thead>
     <tbody>
-        @{ foreach (Ppm99 ppm99 in ppm99s)
-            {
-                <tr>
-                    <th>@ppm99.ppm99_stfn</th>
-                    <th>@ppm99.ppm99_name</th>
-                    <th>@ppm99.ppm99_jdate</th>
-                    <th>@ppm99.ppm99_gender</th>
-                    <th>@ppm99.ppm99_military</th>
-                    <th>@ppm99.ppm99_transportList</th>
-                    <th>@ppm99.ppm99_city</th>
-                    <th>@ppm99.ppm99_zone</th>
-                    <th>@ppm99.ppm99_addr</th>
-                    <th>@Html.ActionLink("編輯", "EditPPM", new { stfn = ppm99.ppm99_stfn })</th>
-                </tr>
-            }
+        @foreach (StaffList ppm99 in Model)
+        {
+            <tr>
+                <th>@ppm99.ppm99_stfn</th>
+                <th>@ppm99.ppm99_name</th>
+                <th>@ppm99.ppm99_jdate</th>
+                <th>@ppm99.ppm99_gender</th>
+                <th>@ppm99.ppm99_military</th>
+                <th>@ppm99.ppm99_transportList</th>
+                <th>@ppm99.ppm99_city</th>
+                <th>@ppm99.ppm99_zone</th>
+                <th>@ppm99.ppm99_addr</th>
+                <th>@Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)</th>
+            </tr>
         }
     </tbody>
 </table>

@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+
+<div class="page-title">
+    <h3>
+        新增員工資料
+    </h3>
+</div>
+<br />
+
+<form action="/HRDetail/AddStaffDetail" method="post">
+    <div>
+        <label>編號</label>
+        <input type="text" name="ppm99_stfn" />
+    </div>
+    <div>
+        <label>名字</label>
+        <input type="text" name="ppm99_name" />
+    </div>
+    <div>
+        <label>日期</label>
+        <input type="text" name="ppm99_jdate" />
+    </div>
+    <div>
+        <label>性別</label>
+        <input type="text" name="ppm99_gender" />
+    </div>
+    <div>
+        <label>服兵役</label>
+        <input type="text" name="ppm99_military" />
+    </div>
+    <div>
+        <label>交通方式</label>
+        <input type="text" name="ppm99_transportList" />
+    </div>
+    <div>
+        <label>地址縣市</label>
+        <input type="text" name="ppm99_city" />
+    </div>
+    <div>
+        <label>地址鄉鎮</label>
+        <input type="text" name="ppm99_zone" />
+    </div>
+    <div>
+        <label>地址門牌</label>
+        <input type="text" name="ppm99_addr" />
+    </div>
+
+    <button type="submit" name="submitButton" value="save">保存</button>
+    <button type="submit" name="submitButton" value="cancel">取消</button>
+
+</form>
