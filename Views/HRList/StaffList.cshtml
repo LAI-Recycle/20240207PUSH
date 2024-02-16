@@ -10,10 +10,11 @@
         員工資料清單
     </h3>
 </div>
-
-<table class="table">
+<br />
+<table class="table table-striped table-hover">
     <thead>
-        <tr>
+        <tr >
+            <th>#</th>
             <th>編號</th>
             <th>名稱</th>
             <th>日期</th>
@@ -23,22 +24,30 @@
             <th>地址縣市</th>
             <th>地址鄉鎮</th>
             <th>地址門牌</th>
+            <th></th>
         </tr>
-    </thead>
+</thead>
     <tbody>
         @foreach (StaffList ppm99 in Model)
         {
             <tr>
-                <th>@ppm99.ppm99_stfn</th>
-                <th>@ppm99.ppm99_name</th>
-                <th>@ppm99.ppm99_jdate</th>
-                <th>@ppm99.ppm99_gender</th>
-                <th>@ppm99.ppm99_military</th>
-                <th>@ppm99.ppm99_transportList</th>
-                <th>@ppm99.ppm99_city</th>
-                <th>@ppm99.ppm99_zone</th>
-                <th>@ppm99.ppm99_addr</th>
-                <th>@Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)</th>
+                <td>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                </td>
+                <td>
+                    @Html.ActionLink(ppm99.ppm99_stfn, "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)
+                </td>
+                <td>@ppm99.ppm99_name</td>
+                <td>@ppm99.ppm99_jdate</td>
+                <td>@ppm99.ppm99_gender</td>
+                <td>@ppm99.ppm99_military</td>
+                <td>@ppm99.ppm99_transportList</td>
+                <td>@ppm99.ppm99_city</td>
+                <td>@ppm99.ppm99_zone</td>
+                <td>@ppm99.ppm99_addr</td>
+                <td>
+                    @Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)
+                </td>
             </tr>
         }
     </tbody>

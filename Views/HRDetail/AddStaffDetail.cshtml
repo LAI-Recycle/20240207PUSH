@@ -11,42 +11,80 @@
 <br />
 
 <form action="/HRDetail/AddStaffDetail" method="post">
-    <div>
-        <label>編號</label>
-        <input type="text" name="ppm99_stfn" />
-    </div>
-    <div>
-        <label>名字</label>
-        <input type="text" name="ppm99_name" />
-    </div>
-    <div>
-        <label>日期</label>
-        <input type="text" name="ppm99_jdate" />
-    </div>
-    <div>
-        <label>性別</label>
-        <input type="text" name="ppm99_gender" />
-    </div>
-    <div>
-        <label>服兵役</label>
-        <input type="text" name="ppm99_military" />
-    </div>
-    <div>
-        <label>交通方式</label>
-        <input type="text" name="ppm99_transportList" />
-    </div>
-    <div>
-        <label>地址縣市</label>
-        <input type="text" name="ppm99_city" />
-    </div>
-    <div>
-        <label>地址鄉鎮</label>
-        <input type="text" name="ppm99_zone" />
-    </div>
-    <div>
-        <label>地址門牌</label>
-        <input type="text" name="ppm99_addr" />
-    </div>
+    <table class="table">
+        <tr>
+            <th>
+                編號
+            </th>
+            <td>
+                <input type="text" name="ppm99_stfn"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                名字
+            </th>
+            <td>
+                <input type="text" name="ppm99_name"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                日期
+            </th>
+            <td>
+                <input type="text" name="ppm99_jdate"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                性別
+            </th>
+            <td>
+                <input type="text" name="ppm99_gender"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                服兵役
+            </th>
+            <td>
+                <input type="text" name="ppm99_military"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                交通方式
+            </th>
+            <td>
+                <input type="text" name="ppm99_transportList"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                地址縣市
+            </th>
+            <td>
+                <input type="text" name="ppm99_city"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                地址鄉鎮
+            </th>
+            <td>
+                <input type="text" name="ppm99_zone"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                地址門牌
+            </th>
+            <td>
+                <input type="text" name="ppm99_addr"/>
+            </td>
+        </tr>
+    </table>
 
     <button type="submit" name="submitButton" value="save">保存</button>
     <button type="submit" name="submitButton" value="cancel">取消</button>
