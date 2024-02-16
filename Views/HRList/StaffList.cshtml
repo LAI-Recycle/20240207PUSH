@@ -39,7 +39,22 @@
                 </td>
                 <td>@ppm99.ppm99_name</td>
                 <td>@ppm99.ppm99_jdate</td>
-                <td>@ppm99.ppm99_gender</td>
+                <td>
+                    @{
+                        if (ppm99.ppm99_gender == "M")
+                        {
+                            @:男
+                        }
+                        else if(ppm99.ppm99_gender == "F")
+                        {
+                            @:女
+                        }
+                        else
+                        {
+                            @:未填寫
+                        }
+                    }
+                </td>
                 <td>@ppm99.ppm99_military</td>
                 <td>@ppm99.ppm99_transportList</td>
                 <td>@ppm99.ppm99_city</td>

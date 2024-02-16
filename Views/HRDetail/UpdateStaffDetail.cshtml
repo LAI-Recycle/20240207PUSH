@@ -43,7 +43,8 @@
                 性別
             </th>
             <td>
-                <input type="text" name="ppm99_gender" value="@Model.ppm99_gender" />
+                <input type="radio" name="ppm99_gender" value="M" @(Model.ppm99_gender == "M" ? "checked" : "") /> 男
+                <input type="radio" name="ppm99_gender" value="F" @(Model.ppm99_gender == "F" ? "checked" : "") /> 女
             </td>
         </tr>
         <tr>
