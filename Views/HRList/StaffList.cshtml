@@ -75,29 +75,28 @@
                         }
                     }
                 </td>
-
-                <td>@ppm99.ppm99_transportList</td>
                 <td>
                     @{
-                        if (ppm99.ppm99_transportList == "1")
+                        if (ppm99 != null && ppm99.ppm99_transportList != null)
                         {
-                            @:機車
-                        }
-                        else if (ppm99.ppm99_transportList == "2")
-                        {
-                            @:汽車
-                        }
-                        else if (ppm99.ppm99_transportList == "3")
-                        {
-                            @:公車
+                            if (ppm99.ppm99_transportList.Contains("1"))
+                            {
+                                @:機車
+                            }
+                            if (ppm99.ppm99_transportList.Contains("2"))
+                            {
+                                @:汽車
+                            }
+                            if (ppm99.ppm99_transportList.Contains("3"))
+                            {
+                                @:公車
+                            }
                         }
                         else
                         {
-                            @:無
                         }
                     }
                 </td>
-
                 <td>@ppm99.ppm99_city</td>
                 <td>@ppm99.ppm99_zone</td>
                 <td>@ppm99.ppm99_addr</td>

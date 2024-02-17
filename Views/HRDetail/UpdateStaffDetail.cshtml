@@ -65,7 +65,10 @@
                 交通方式
             </th>
             <td>
-                <input type="text" name="ppm99_transportList" value="@Model.ppm99_transportList" />
+                <label><input type="checkbox" name="ppm99_transportList" value="1" @(Model.ppm99_transportList?.Contains("1") == true ? "checked" : "")>機車</label>
+                <label><input type="checkbox" name="ppm99_transportList" value="2" @(Model.ppm99_transportList?.Contains("2") == true ? "checked" : "")>汽車</label>
+                <label><input type="checkbox" name="ppm99_transportList" value="3" @(Model.ppm99_transportList?.Contains("3") == true ? "checked" : "")>公車</label>
+                <label><input type="checkbox" name="ppm99_transportList" value="4" @(Model.ppm99_transportList?.Contains("4") == true ? "checked" : "")>火車</label>
             </td>
         </tr>
         <tr>

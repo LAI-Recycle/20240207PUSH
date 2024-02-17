@@ -121,7 +121,7 @@ namespace WebApplication1.Models
         /// 更新員工明細
         /// </summary>
         /// <param name="staffdetail"></param>
-        public void UpdateStaffDetail(StaffDetail staffdetail)
+        public void UpdateStaffDetail(StaffDetail staffdetail, string[] ppm99_transportList)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnStr);
             SqlCommand sqlCommand = new SqlCommand(
@@ -150,7 +150,14 @@ namespace WebApplication1.Models
             }
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_gender", (object)staffdetail.ppm99_gender ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_military", (object)staffdetail.ppm99_military ?? DBNull.Value));
-            sqlCommand.Parameters.Add(new SqlParameter("@ppm99_transportList", (object)staffdetail.ppm99_transportList ?? DBNull.Value));
+            if (ppm99_transportList != null)
+            {
+                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_transportList", (object)string.Join(",", ppm99_transportList) ?? DBNull.Value));
+            }
+            else
+            {
+                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_transportList", DBNull.Value));
+            }
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_city", (object)staffdetail.ppm99_city ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_zone", (object)staffdetail.ppm99_zone ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_addr", (object)staffdetail.ppm99_addr ?? DBNull.Value));

@@ -69,12 +69,12 @@ namespace WebApplication1.Controllers
         /// <param name="staffdetail"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult UpdateStaffDetail(StaffDetail staffdetail, string submitButton)
+        public ActionResult UpdateStaffDetail(StaffDetail staffdetail, string submitButton, string[] ppm99_transportList)
         {
             if (submitButton == "update")
             {
                 StaffDetailModel dbmanager = new StaffDetailModel();
-                dbmanager.UpdateStaffDetail(staffdetail);
+                dbmanager.UpdateStaffDetail(staffdetail, ppm99_transportList);
             }
 
             return RedirectToAction("StaffList", "HRList");
