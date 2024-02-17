@@ -52,7 +52,12 @@
                 服兵役
             </th>
             <td>
-                <input type="text" name="ppm99_military" value="@Model.ppm99_military" />
+                <select name="ppm99_military">
+                    <option value="" >未填寫</option>
+                    <option value="1" @(Model.ppm99_military == "1" ? "selected" : "")>役畢</option>
+                    <option value="2" @(Model.ppm99_military == "2" ? "selected" : "")>免役</option>
+                    <option value="3" @(Model.ppm99_military == "3" ? "selected" : "")>未役</option>
+                </select>
             </td>
         </tr>
         <tr>
