@@ -138,7 +138,6 @@ namespace WebApplication1.Models
                     WHERE ppm99_stfn = @ppm99_stfn"
                );
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.Connection = sqlConnection;
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_stfn", (object)staffdetail.ppm99_stfn ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_name", (object)staffdetail.ppm99_name ?? DBNull.Value));
             if (DateTime.TryParse(staffdetail.ppm99_jdate, out DateTime jdate))
@@ -159,6 +158,20 @@ namespace WebApplication1.Models
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
 
+        }
+
+        public void DeleteStaffDetail(int id)
+        {
+            SqlConnection sqlConnection = new SqlConnection(ConnStr);
+            SqlCommand sqlCommand = new SqlCommand(
+                @"DELETE FROM ppm99$
+                        WHERE ppm99_stfn = @id"
+                );
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.Parameters.Add(new SqlParameter("@id", id));
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
         }
     }
 }

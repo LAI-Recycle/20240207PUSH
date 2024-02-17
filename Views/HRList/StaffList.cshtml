@@ -45,7 +45,7 @@
                         {
                             @:男
                         }
-                        else if(ppm99.ppm99_gender == "F")
+                        else if (ppm99.ppm99_gender == "F")
                         {
                             @:女
                         }
@@ -55,13 +55,35 @@
                         }
                     }
                 </td>
-                <td>@ppm99.ppm99_military</td>
+                <td>
+                    @{
+                        if (ppm99.ppm99_military == "1")
+                        {
+                            @:役畢
+                        }
+                        else if (ppm99.ppm99_military == "2")
+                        {
+                            @:免役
+                        }
+                        else if (ppm99.ppm99_military == "3")
+                        {
+                            @:未役
+                        }
+                        else
+                        {
+                            @:未填寫
+                        }
+                    }
+
+                </td>
                 <td>@ppm99.ppm99_transportList</td>
                 <td>@ppm99.ppm99_city</td>
                 <td>@ppm99.ppm99_zone</td>
                 <td>@ppm99.ppm99_addr</td>
                 <td>
                     @Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)
+                ｜
+                    @Html.ActionLink("刪除", "DeleteStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { onclick = "return confirm('Are you sure?');" })
                 </td>
             </tr>
         }

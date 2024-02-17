@@ -76,7 +76,22 @@ namespace WebApplication1.Controllers
                 StaffDetailModel dbmanager = new StaffDetailModel();
                 dbmanager.UpdateStaffDetail(staffdetail);
             }
+
             return RedirectToAction("StaffList", "HRList");
         }
+        /// <summary>
+        /// 刪除員工明細
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult DeleteStaffDetail(int id)
+        {
+            StaffDetailModel dbmanager = new StaffDetailModel();
+            dbmanager.DeleteStaffDetail(id);
+            
+            return RedirectToAction("StaffList", "HRList");
+        }
+        
     }
 }
