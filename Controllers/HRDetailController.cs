@@ -25,14 +25,14 @@ namespace WebApplication1.Controllers
         /// <param name="staffdetail"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult AddStaffDetail(StaffDetail staffdetail, string submitButton)
+        public ActionResult AddStaffDetail(StaffDetail staffdetail, string submitButton, string[] ppm99_transportList)
         {
             if (submitButton == "save")
             {
                 StaffDetailModel dbmanager = new StaffDetailModel();
                 try
                 {
-                    dbmanager.AddStaffDetail(staffdetail);
+                    dbmanager.AddStaffDetail(staffdetail, ppm99_transportList);
 
                     return RedirectToAction("StaffList", "HRList");
                 }
