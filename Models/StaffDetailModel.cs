@@ -53,14 +53,7 @@ namespace WebApplication1.Models
             sqlCommand.Connection = sqlConnection;
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_stfn", (object)staffdetail.ppm99_stfn ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_name", (object)staffdetail.ppm99_name ?? DBNull.Value));
-            if (DateTime.TryParse(staffdetail.ppm99_jdate, out DateTime jdate))
-            {
-                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", jdate));
-            }
-            else
-            {
-                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", DBNull.Value));
-            }
+            sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", (object)staffdetail.ppm99_jdate ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_gender", (object)staffdetail.ppm99_gender ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_military", (object)staffdetail.ppm99_military ?? DBNull.Value));
             if (ppm99_transportList != null)
@@ -106,7 +99,7 @@ namespace WebApplication1.Models
                     {
                         ppm99_stfn = reader.IsDBNull(reader.GetOrdinal("ppm99_stfn")) ? null : reader.GetDouble(reader.GetOrdinal("ppm99_stfn")).ToString(),
                         ppm99_name = reader.IsDBNull(reader.GetOrdinal("ppm99_name")) ? null : reader.GetString(reader.GetOrdinal("ppm99_name")),
-                        ppm99_jdate = reader.IsDBNull(reader.GetOrdinal("ppm99_jdate")) ? null : reader.GetDateTime(reader.GetOrdinal("ppm99_jdate")).ToString("yyyyMMdd"),
+                        ppm99_jdate = reader.IsDBNull(reader.GetOrdinal("ppm99_jdate")) ? null : reader.GetString(reader.GetOrdinal("ppm99_jdate")),
                         ppm99_gender = reader.IsDBNull(reader.GetOrdinal("ppm99_gender")) ? null : reader.GetString(reader.GetOrdinal("ppm99_gender")),
                         ppm99_military = reader.IsDBNull(reader.GetOrdinal("ppm99_military")) ? null : reader.GetString(reader.GetOrdinal("ppm99_military")),
                         ppm99_transportList = reader.IsDBNull(reader.GetOrdinal("ppm99_transportList")) ? null : reader.GetString(reader.GetOrdinal("ppm99_transportList")),
@@ -147,14 +140,7 @@ namespace WebApplication1.Models
             sqlCommand.Connection = sqlConnection;
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_stfn", (object)staffdetail.ppm99_stfn ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_name", (object)staffdetail.ppm99_name ?? DBNull.Value));
-            if (DateTime.TryParse(staffdetail.ppm99_jdate, out DateTime jdate))
-            {
-                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", jdate));
-            }
-            else
-            {
-                sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", DBNull.Value));
-            }
+            sqlCommand.Parameters.Add(new SqlParameter("@ppm99_jdate", (object)staffdetail.ppm99_jdate ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_gender", (object)staffdetail.ppm99_gender ?? DBNull.Value));
             sqlCommand.Parameters.Add(new SqlParameter("@ppm99_military", (object)staffdetail.ppm99_military ?? DBNull.Value));
             if (ppm99_transportList != null)
