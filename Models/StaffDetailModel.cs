@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 
 namespace WebApplication1.Models
 {
-
     public class StaffDetail
     {
         public string ppm99_stfn { get; set; }
@@ -157,9 +156,12 @@ namespace WebApplication1.Models
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
-
         }
 
+        /// <summary>
+        /// 刪除員工明細
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteStaffDetail(int id)
         {
             SqlConnection sqlConnection = new SqlConnection(ConnStr);
@@ -172,6 +174,25 @@ namespace WebApplication1.Models
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
+        }
+
+        /// <summary>
+        /// 檢查員工明細
+        /// </summary>
+        /// <param name="ppm99_stfn"></param>
+        /// <returns></returns>
+        public bool CheckStfnDetail(int ppm99_stfn)
+        {
+            string result = GetStaffDetail(ppm99_stfn).ppm99_stfn;
+
+            if (result != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -6,8 +6,8 @@ namespace WebApplication1.Controllers
 {
     public class HRDetailController : Controller
     {
-
         ///新增/修改/刪除/作廢
+        StaffDetailModel dbmanager = new StaffDetailModel();
 
         /// <summary>
         /// 新增員工明細
@@ -29,7 +29,6 @@ namespace WebApplication1.Controllers
         {
             if (submitButton == "save")
             {
-                StaffDetailModel dbmanager = new StaffDetailModel();
                 try
                 {
                     dbmanager.AddStaffDetail(staffdetail, ppm99_transportList);
@@ -57,7 +56,6 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ActionResult UpdateStaffDetail(int id)
         {
-            StaffDetailModel dbmanager = new StaffDetailModel();
             StaffDetail staffdetail = dbmanager.GetStaffDetail(id);
 
             return View(staffdetail);
@@ -73,7 +71,6 @@ namespace WebApplication1.Controllers
         {
             if (submitButton == "update")
             {
-                StaffDetailModel dbmanager = new StaffDetailModel();
                 dbmanager.UpdateStaffDetail(staffdetail, ppm99_transportList);
             }
 
@@ -87,11 +84,27 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public ActionResult DeleteStaffDetail(int id)
         {
-            StaffDetailModel dbmanager = new StaffDetailModel();
             dbmanager.DeleteStaffDetail(id);
-            
+
             return RedirectToAction("StaffList", "HRList");
         }
-        
+
+        /// <summary>
+        /// 檢查員工編號
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult CheckStfnDetail(int ppm99_stfn)
+        {
+            if (dbmanager.CheckStfnDetail(ppm99_stfn))
+            {
+                return Json(true);
+            }
+            else
+            {
+                return Json(false);
+            }
+        }
+
     }
 }

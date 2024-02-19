@@ -1,27 +1,24 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
-using System.Runtime.Remoting.Messaging;
 
 namespace WebApplication1.Models
 {
 
-        public class StaffList
+    public class StaffList
     {
-            public string ppm99_stfn { get; set; }
-            public string ppm99_name { get; set; }
-            public string ppm99_jdate { get; set; }
-            public string ppm99_gender { get; set; }
-            public string ppm99_military { get; set; }
-            public string ppm99_transportList { get; set; }
-            public string ppm99_city { get; set; }
-            public string ppm99_zone { get; set; }
-            public string ppm99_addr { get; set; }
-        }
-        public class StaffListModel
-        {
+        public string ppm99_stfn { get; set; }
+        public string ppm99_name { get; set; }
+        public string ppm99_jdate { get; set; }
+        public string ppm99_gender { get; set; }
+        public string ppm99_military { get; set; }
+        public string ppm99_transportList { get; set; }
+        public string ppm99_city { get; set; }
+        public string ppm99_zone { get; set; }
+        public string ppm99_addr { get; set; }
+    }
+    public class StaffListModel
+    {
         private readonly string ConnStr = "Data Source = localhost\\SQLEXPRESS;Initial Catalog = Test; Integrated Security = True";
 
         /// <summary>
@@ -61,7 +58,6 @@ namespace WebApplication1.Models
                 Console.WriteLine("資料庫為空！");
             }
             sqlConnection.Close();
-
 
             return stafflist;
         }
