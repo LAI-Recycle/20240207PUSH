@@ -6,7 +6,7 @@
 }
 
 @Scripts.Render("~/bundles/jquery")
-<script src="Scripts/HRList/StaffDetail.js" type="text/javascript"></script>
+<script src="~/Scripts/HRList/StaffList.js" type="text/javascript"></script>
 
 <div class="page-title">
     <h3>
@@ -38,7 +38,7 @@
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 </td>
                 <td>
-                    @Html.ActionLink(ppm99.ppm99_stfn, "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, null)
+                    @Html.ActionLink(ppm99.ppm99_stfn, "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { data_ppm99_stfn = ppm99.ppm99_stfn, onclick = "return confirmEdit(this);" })
                 </td>
                 <td>@ppm99.ppm99_name</td>
                 <td>@ppm99.ppm99_jdate</td>
@@ -104,10 +104,9 @@
                 <td>@ppm99.ppm99_zone</td>
                 <td>@ppm99.ppm99_addr</td>
                 <td>
-                    @Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { @class = "practice-link" })
-
+                    @Html.ActionLink("編輯", "UpdateStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { data_ppm99_stfn = ppm99.ppm99_stfn, onclick = "return confirmEdit(this);" })
                     ｜
-                    @Html.ActionLink("刪除", "DeleteStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { onclick = "return confirm('Are you sure?');" })
+                    @Html.ActionLink("刪除", "DeleteStaffDetail", "HRDetail", new { id = ppm99.ppm99_stfn }, new { data_ppm99_stfn = ppm99.ppm99_stfn, onclick = "return confirmDelete(this);" })
                 </td>
             </tr>
         }

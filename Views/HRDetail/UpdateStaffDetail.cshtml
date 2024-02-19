@@ -4,14 +4,21 @@
     ViewBag.Title = "Contact";
 }
 
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/HRDetail/UpdateStaffDetail.js" type="text/javascript"></script>
+
 <div class="page-title">
     <h3>
         更新員工資料
     </h3>
 </div>
 
-<br />  
-<form action="/HRDetail/UpdateStaffDetail" method="post">
+<br />
+<form action="/HRDetail/UpdateStaffDetail" method="post" id="UpdateStaffForm">
+
+    <!-- hidden input -->
+    <input type="hidden" name="submitButton" id="submitButton" value="">
+    <!-- hidden input -->
 
     <table class="table">
         <tr>
@@ -19,7 +26,7 @@
                 編號
             </th>
             <td>
-                <input type="text" name="ppm99_stfn" value="@Model.ppm99_stfn" >
+                <input type="text" name="ppm99_stfn" value="@Model.ppm99_stfn">
             </td>
         </tr>
         <tr>
@@ -53,7 +60,7 @@
             </th>
             <td>
                 <select name="ppm99_military">
-                    <option value="" >未填寫</option>
+                    <option value="">未填寫</option>
                     <option value="1" @(Model.ppm99_military == "1" ? "selected" : "")>役畢</option>
                     <option value="2" @(Model.ppm99_military == "2" ? "selected" : "")>免役</option>
                     <option value="3" @(Model.ppm99_military == "3" ? "selected" : "")>未役</option>
@@ -97,6 +104,6 @@
         </tr>
     </table>
 
-    <button type="submit" name="submitButton" value="update">保存</button>
-    <button type="submit" name="submitButton" value="cancel">取消</button>
+    <button type="button" onclick="updateForm()">保存</button>
+    <button type="button" onclick="cancelForm()">取消</button>
 </form>
