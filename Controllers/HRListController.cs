@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using WebApplication1.Models;
+using System.Linq;
+using PagedList;
 
 namespace WebApplication1.Controllers
 {
@@ -10,12 +11,12 @@ namespace WebApplication1.Controllers
         /// 員工資料清單
         /// </summary>
         /// <returns></returns>
-        public ActionResult StaffList()
+        public ActionResult StaffList(StaffListModel dbmanager, int page = 1, int pageSize = 5)
         {
-            StaffListModel dbmanager = new StaffListModel();
-            List<StaffList> stafflist = dbmanager.GetStaffList();
+            dbmanager.GetStaffList();
+            IPagedList<StaffListModel.Staff> result = dbmanager.StaffList.OrderBy(x => x.ppm99_stfn).ToPagedList(page, pageSize);
 
-            return View(stafflist);
+            return View(result);
         }
     }
 }
